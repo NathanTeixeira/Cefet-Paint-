@@ -1,10 +1,14 @@
 
 package Model;
 
-public abstract class FiguraGeometrica {
+public class FiguraGeometrica {
 
-    public abstract double getArea();
+    public double getArea(){
+        return 0;
+    }
     
-    public abstract double getPerimetro();
+    public double getPerimetro(){
+        return 0;
+    }
     
 }
