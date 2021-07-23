@@ -2,11 +2,11 @@ package Model;
 
 public abstract class Quadrilatero extends FiguraGeometrica {
     
-    private Ponto origem;
-    private Ponto inferiorDireito;
-    private Ponto inferiorEsquerdo;
-    private Ponto superiorDireito;
-    private Ponto superiorEsquerdo;
+    protected Ponto origem;
+    protected Ponto inferiorDireito;
+    protected Ponto inferiorEsquerdo;
+    protected Ponto superiorDireito;
+    protected Ponto superiorEsquerdo;
 
     public double getDiagonal() {
         return 0;
@@ -60,9 +60,6 @@ public abstract class Quadrilatero extends FiguraGeometrica {
         this.superiorEsquerdo = superiorEsquerdo;
     }
     
-    
-    
-
     
 
 }

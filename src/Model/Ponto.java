@@ -1,6 +1,6 @@
 package Model;
 
-public class Ponto {
+public class Ponto extends FiguraGeometrica {
 
     private int coordenadaX;
     private int coordenadaY;
