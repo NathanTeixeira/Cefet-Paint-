@@ -8,10 +8,10 @@ public class Reta extends FiguraGeometrica {
     private int fim;
 
     public Reta() {   
-        this(0, 1);
+        this(1);
     }
 
-    public Reta(int inicio, int fim) {
+    public Reta(int fim) {
         pontoInicio = new Ponto(inicio, 0);
         pontoFim = new Ponto(fim, 0);
     }
