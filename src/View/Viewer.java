@@ -84,7 +84,7 @@ public class Viewer {
                 + "7 - Apagar Item\n"
                 + "8 - Listar\n"
                 + "9 - Desenhar\n"
-                + "0 - Sair");
+                + "0 - Sair \n");
 
         int opcao = scn.nextInt();
 
@@ -110,6 +110,12 @@ public class Viewer {
             default:
                 return OpcoesMenu.SAIR;
         }
+    }
+    
+    public String askApagar(){
+        System.out.println("DÍGITE O ID DA FIGURA");
+        String ID = scn.next();
+        return ID;      
     }
 
 }
