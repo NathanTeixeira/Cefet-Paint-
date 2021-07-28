@@ -13,6 +13,7 @@ public class Control {
     public Control(){
         figuras = new FiguraGeometrica[10];
         viewer = new Viewer();
+        //MUdei uma linha
     }
     
 }
