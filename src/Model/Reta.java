@@ -4,24 +4,36 @@ public class Reta extends FiguraGeometrica {
 
     private Ponto pontoInicio;
     private Ponto pontoFim;
-    private int inicio;
     private int fim;
 
-    public Reta() {   
-        this(1);
+    public int getFim() {
+        return fim;
     }
 
-    public Reta(int fim) {
-        pontoInicio = new Ponto(inicio, 0);
+    public void setFim(int fim) {
+        this.fim = fim;
+    }
+    
+    
+
+    public Reta() {   
+        this("RETA", 1);
+    }
+
+    public Reta(String id, int fim) {
+        setId("RETA");
+        pontoInicio = new Ponto(0, 0);
         pontoFim = new Ponto(fim, 0);
     }
     
-    public void setLado(int inicio, int fim){
-        getPontoInicio().setCoordenadaX(inicio);
+    public void setLado(String id, int fim){
+        setId("RETA");
+        getPontoInicio().setCoordenadaX(0);
         getPontoInicio().setCoordenadaY(0);
         getPontoFim().setCoordenadaX(fim);
         getPontoFim().setCoordenadaY(0);
     }
+    
     
     @Override
     public double getArea(){

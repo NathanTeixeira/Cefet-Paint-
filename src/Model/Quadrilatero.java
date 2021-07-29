@@ -8,9 +8,6 @@ public abstract class Quadrilatero extends FiguraGeometrica {
     protected Ponto superiorDireito;
     protected Ponto superiorEsquerdo;
 
-    public double getDiagonal() {
-        return 0;
-    }
 
     public Quadrilatero() {
         this.origem = new Ponto(0,0);

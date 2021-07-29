@@ -5,11 +5,28 @@ public class Retangulo extends Quadrilatero {
     private int base;
     private int altura;
 
-    public Retangulo() {
-        this(2, 1);
+    public int getBase() {
+        return base;
     }
 
-    public Retangulo(int base, int Altura) {
+    public void setBase(int base) {
+        this.base = base;
+    }
+
+    public int getAltura() {
+        return altura;
+    }
+
+    public void setAltura(int altura) {
+        this.altura = altura;
+    }
+
+    public Retangulo() {
+        this("RETANGULO", 2, 1);
+    }
+
+    public Retangulo(String id, int base, int Altura) {
+        setId("RETANGULO");
         getInferiorDireito().setCoordenadaX(base);
         getInferiorDireito().setCoordenadaY(0);
         getInferiorEsquerdo().setCoordenadaX(0);
@@ -21,7 +38,8 @@ public class Retangulo extends Quadrilatero {
 
     }
 
-    public void setLados(int base, int Altura) {
+    public void setLados(String id, int base, int Altura) {
+        setId("RETANGULO");
         getInferiorDireito().setCoordenadaX(base);
         getInferiorDireito().setCoordenadaY(0);
         getInferiorEsquerdo().setCoordenadaX(0);

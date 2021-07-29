@@ -4,11 +4,21 @@ public class Quadrado extends Quadrilatero {
 
     private int lado;
 
-    public Quadrado() {
-        this(1);
+    public int getLado() {
+        return lado;
     }
 
-    public Quadrado(int lado) {
+    public void setlado(int lado) {
+        this.lado = lado;
+    }
+
+    public Quadrado() {
+        this("QUADRADO", 1);
+    }
+
+    public Quadrado(String id, int lado) {
+        setId("QUADRADO");
+        getId();
         getInferiorDireito().setCoordenadaX(lado);
         getInferiorDireito().setCoordenadaY(0);
         getInferiorEsquerdo().setCoordenadaX(0);
@@ -17,9 +27,11 @@ public class Quadrado extends Quadrilatero {
         getSuperiorDireito().setCoordenadaY(lado);
         getSuperiorEsquerdo().setCoordenadaX(0);
         getSuperiorEsquerdo().setCoordenadaY(lado);
+        this.setlado(1);
     }
 
-    public void setLado(int lado) {
+    public void setLado(String id, int lado) {
+        setId("QUADRADO");
         getInferiorDireito().setCoordenadaX(lado);
         getInferiorDireito().setCoordenadaY(0);
         getInferiorEsquerdo().setCoordenadaX(0);
@@ -32,16 +44,16 @@ public class Quadrado extends Quadrilatero {
 
     @Override
     public double getArea() {
-        return lado * lado;
+        return getLado() * getLado();
     }
 
     @Override
     public double getPerimetro() {
-        return lado * 4;
+        return getLado() * 4;
     }
-    
+
     @Override
-    public double getDiagonal(){
-        return Math.sqrt(((lado*lado)*2));
+    public double getDiagonal() {
+        return Math.sqrt(((lado * lado) * 2));
     }
 }

@@ -8,17 +8,37 @@ public class Triangulo extends FiguraGeometrica {
     private int base;
     private int altura;
 
-    public Triangulo() {
-        this(4, 3);
+    public int getBase() {
+        return base;
     }
 
-    public Triangulo(int base, int altura) {
+    public void setBase(int base) {
+        this.base = base;
+    }
+
+    public int getAltura() {
+        return altura;
+    }
+
+    public void setAltura(int altura) {
+        this.altura = altura;
+    }
+    
+    
+
+    public Triangulo() {
+        this("TRIANGULO", 4, 3);
+    }
+
+    public Triangulo(String id, int base, int altura) {
+        setId("TRIANGULO");
         inferiorEsquerdo = new Ponto(0, 0);
         inferiorDireito = new Ponto(base, 0);
         superior = new Ponto(base / 2, altura);
     }
 
-    public void setLados(int base, int altura) {
+    public void setLados(String id, int base, int altura) {
+        setId("TRIANGULO");
         getInferiorEsquerdo().setCoordenadaX(0);
         getInferiorEsquerdo().setCoordenadaY(0);
         getInferiorDireito().setCoordenadaX(base);

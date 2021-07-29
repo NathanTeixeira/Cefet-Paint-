@@ -8,55 +8,73 @@ import Model.Retangulo;
 import Model.Trapezio;
 import Model.Triangulo;
 import Model.Reta;
+import View.Menu_View;
+import View.Model_View;
 import View.Viewer;
+import java.text.DecimalFormat;
 
 public class Control {
+    
 
     private FiguraGeometrica[] figuras;
     private Viewer viewer;
+    private Model_View modelview;
+    private Menu_View menuview;
 
     public Control() {
         figuras = new FiguraGeometrica[10];
         viewer = new Viewer();
+        modelview = new Model_View();
+        menuview = new Menu_View();
     }
 
     public void printMenu() {
         OpcoesMenu escolha = OpcoesMenu.LISTAR;
 
         do {
-            escolha = viewer.askOpcao();
-            viewer.ShowMsg("Você escolheu: " + escolha+"\n");
+            escolha = menuview.askOpcao();
+            viewer.ShowMsg("$$$$$$$$$$$$$$$$$$$$$$$$$$ \n");
+            viewer.ShowMsg("Você escolheu: " + escolha + "\n");
             switch (escolha) {
                 case QUADRADO:
-                    Quadrado quadrado = viewer.askQuadrado();
+                    Quadrado quadrado = modelview.askQuadrado();
                     inserirFiguras(quadrado, 0);
                     break;
                 case RETANGULO:
-                    Retangulo retangulo = viewer.askRetangulo();
+                    Retangulo retangulo = modelview.askRetangulo();
                     inserirFiguras(retangulo, 1);
                     break;
                 case TRAPEZIO:
-                    Trapezio trapezio = viewer.askTrapezio();
+                    Trapezio trapezio = modelview.askTrapezio();
                     inserirFiguras(trapezio, 2);
                     break;
                 case TRIANGULO:
-                    Triangulo triangulo = viewer.askTriangulo();
+                    Triangulo triangulo = modelview.askTriangulo();
                     inserirFiguras(triangulo, 3);
                     break;
                 case RETA:
-                    Reta reta = viewer.askReta();
+                    Reta reta = modelview.askReta();
                     inserirFiguras(reta, 4);
                     break;
                 case PONTO:
-                    Ponto ponto = viewer.askPonto();
-                   inserirFiguras(ponto, 5);
+                    Ponto ponto = modelview.askPonto();
+                    inserirFiguras(ponto, 5);
                     break;
-                case LISTAR:
-                    for (int i = 0; i < figuras.length; i++) {
-                        if (figuras[i] != null) {
-                            viewer.ShowMsg(figuras[i].toString()+"\n");
-                        }
+                case APAGAR:   
+                    viewer.ShowMsg("########################## \n");
+                    if(apagarFiguras() == true){
+                        viewer.ShowMsg("SUCESSO AO APAGAR! \n");
+                        viewer.ShowMsg("########################## \n");
+                        break;
+                    }else{
+                        viewer.ShowMsg("FALHA AO APAGAR! \n");
+                        viewer.ShowMsg("########################## \n");
+                        break;
                     }
+                case LISTAR:
+                    viewer.ShowMsg("**************** \n");
+                    lerFiguras();
+                    viewer.ShowMsg("**************** \n");
                     break;
                 case DESENHAR:
                     viewer.ShowMsg("coming soon");
@@ -70,26 +88,44 @@ public class Control {
 
         } while (escolha != OpcoesMenu.SAIR);
     }
-    
-    public boolean inserirFiguras(FiguraGeometrica f, int i){
+
+    public boolean inserirFiguras(FiguraGeometrica f, int i) {
         figuras[i] = f;
+        viewer.ShowMsg("$$$$$$$$$$$$$$$$$$$$$$$$$$ \n");
         for (int j = 0; j < figuras.length; j++) {
-            if(figuras == null){
+            if (figuras == null) {
                 figuras[j] = f;
-                return true;              
-            }          
-        }      
-       return false; 
+                viewer.ShowMsg("$$$$$$$$$$$$$$$$$$$$$$$$$$ \n");
+                return true;
+            }
+        }
+        return false;
     }
-    
-    /* public boolean apagarFiguras(){
-    for (int i = 0; i < figuras.length; i++) {
-    if(viewer.askApagar().equals(viewer))
-    
+
+    public boolean apagarFiguras() {
+        viewer.ShowMsg("DIGITE O ID DA FIGURA QUE DESEJA APAGAR: ");
+        String id = viewer.AskString();
+        for (int i = 0; i < figuras.length; i++) {
+            if (figuras[i] != null) {
+                if (id.equals(figuras[i].getId())) {
+                    figuras[i] = null;
+                    return true;
+                }
+            }
+        }
+        return false;
     }
-    return false;
-    }*/
-    
-    
+
+    public void lerFiguras() {
+        for (int i = 0; i < figuras.length; i++) {
+            if (figuras[i] != null) {
+                viewer.ShowMsg("ID: "+figuras[i].getId()+"\n");
+                //viewer.ShowMsg("Lados: "+));
+                viewer.ShowMsg("AREA: "+figuras[i].getArea()+"\n");
+                viewer.ShowMsg("PERIMETRO: "+figuras[i].getPerimetro()+"\n");
+                viewer.ShowMsg("DIAGONAL: "+figuras[i].getDiagonal()+"\n");
+            }
+        }
+    }
 
 }
