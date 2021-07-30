@@ -17,11 +17,20 @@ public class Ponto extends FiguraGeometrica {
     }
 
     public void setPonto(String id, int coordenadaX, int coordenadaY) {
-        setId("PONTO");
+        setId(id);
         this.coordenadaX = coordenadaX;
         this.coordenadaY = coordenadaY;
     }
 
+    @Override
+    public String getCoordenadas() {      
+        return String.valueOf("X: "+coordenadaX+" - Y: "+ coordenadaY); 
+    }
+    
+    @Override
+    public String getTipo() {
+        return "PONTO";
+    }
 
     public int getCoordenadaX() {
         return coordenadaX;

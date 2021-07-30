@@ -5,7 +5,17 @@ import Model.OpcoesMenu;
 public class Menu_View {
 
     private Viewer basic;
+    private String id;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    
 
     public Menu_View() {
         basic = new Viewer();
@@ -49,6 +59,12 @@ public class Menu_View {
             default:
                 return OpcoesMenu.SAIR;
         }
+    }
+
+    public String askApagar() {
+        basic.ShowMsg("DIGITE O ID DA FIGURA QUE DESEJA APAGAR: ");
+        setId(basic.AskString());
+        return getId();
     }
 
 }

@@ -14,7 +14,6 @@ import View.Viewer;
 import java.text.DecimalFormat;
 
 public class Control {
-    
 
     private FiguraGeometrica[] figuras;
     private Viewer viewer;
@@ -33,8 +32,8 @@ public class Control {
 
         do {
             escolha = menuview.askOpcao();
-            viewer.ShowMsg("$$$$$$$$$$$$$$$$$$$$$$$$$$ \n");
-            viewer.ShowMsg("Você escolheu: " + escolha + "\n");
+            viewer.ShowMsg("################################# \n");
+            viewer.ShowMsg("Você escolheu: " + escolha + "\n\n");
             switch (escolha) {
                 case QUADRADO:
                     Quadrado quadrado = modelview.askQuadrado();
@@ -60,21 +59,21 @@ public class Control {
                     Ponto ponto = modelview.askPonto();
                     inserirFiguras(ponto, 5);
                     break;
-                case APAGAR:   
-                    viewer.ShowMsg("########################## \n");
-                    if(apagarFiguras() == true){
+                case APAGAR:
+                    viewer.ShowMsg("########################## \n\n");
+                    lerFiguras();
+                    if (apagarFiguras() == true) {
                         viewer.ShowMsg("SUCESSO AO APAGAR! \n");
-                        viewer.ShowMsg("########################## \n");
+                        viewer.ShowMsg("########################## \n\n");
                         break;
-                    }else{
+                    } else {
                         viewer.ShowMsg("FALHA AO APAGAR! \n");
-                        viewer.ShowMsg("########################## \n");
+                        viewer.ShowMsg("########################## \n\n");
                         break;
                     }
                 case LISTAR:
-                    viewer.ShowMsg("**************** \n");
                     lerFiguras();
-                    viewer.ShowMsg("**************** \n");
+                    viewer.ShowMsg("###################### \n\n");
                     break;
                 case DESENHAR:
                     viewer.ShowMsg("coming soon");
@@ -91,11 +90,11 @@ public class Control {
 
     public boolean inserirFiguras(FiguraGeometrica f, int i) {
         figuras[i] = f;
-        viewer.ShowMsg("$$$$$$$$$$$$$$$$$$$$$$$$$$ \n");
+        viewer.ShowMsg("################################## \n\n");
         for (int j = 0; j < figuras.length; j++) {
             if (figuras == null) {
                 figuras[j] = f;
-                viewer.ShowMsg("$$$$$$$$$$$$$$$$$$$$$$$$$$ \n");
+                viewer.ShowMsg("########################## \n\n");
                 return true;
             }
         }
@@ -103,11 +102,10 @@ public class Control {
     }
 
     public boolean apagarFiguras() {
-        viewer.ShowMsg("DIGITE O ID DA FIGURA QUE DESEJA APAGAR: ");
-        String id = viewer.AskString();
+        menuview.askApagar();
         for (int i = 0; i < figuras.length; i++) {
             if (figuras[i] != null) {
-                if (id.equals(figuras[i].getId())) {
+                if (menuview.getId().equals(figuras[i].getId())) {
                     figuras[i] = null;
                     return true;
                 }
@@ -117,13 +115,19 @@ public class Control {
     }
 
     public void lerFiguras() {
+        viewer.ShowMsg("**LISTA** \n");
         for (int i = 0; i < figuras.length; i++) {
             if (figuras[i] != null) {
-                viewer.ShowMsg("ID: "+figuras[i].getId()+"\n");
-                //viewer.ShowMsg("Lados: "+));
-                viewer.ShowMsg("AREA: "+figuras[i].getArea()+"\n");
-                viewer.ShowMsg("PERIMETRO: "+figuras[i].getPerimetro()+"\n");
-                viewer.ShowMsg("DIAGONAL: "+figuras[i].getDiagonal()+"\n");
+                viewer.ShowMsg("FIGURA: " + figuras[i].getTipo() + "\n");
+                viewer.ShowMsg("ID: " + figuras[i].getId() + "\n");
+                viewer.ShowMsg("**\n");
+                viewer.ShowMsg(figuras[i].getCoordenadas()+"\n");
+                viewer.ShowMsg("**\n");
+                viewer.ShowMsg("AREA: " + figuras[i].getArea() + "\n");
+                viewer.ShowMsg("PERIMETRO: " + figuras[i].getPerimetro() + "\n");
+                viewer.ShowMsg("DIAGONAL: " + figuras[i].getDiagonal() + "\n");
+                viewer.ShowMsg("** \n");
+
             }
         }
     }

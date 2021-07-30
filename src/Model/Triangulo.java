@@ -23,8 +23,6 @@ public class Triangulo extends FiguraGeometrica {
     public void setAltura(int altura) {
         this.altura = altura;
     }
-    
-    
 
     public Triangulo() {
         this("TRIANGULO", 4, 3);
@@ -38,25 +36,35 @@ public class Triangulo extends FiguraGeometrica {
     }
 
     public void setLados(String id, int base, int altura) {
-        setId("TRIANGULO");
+        setId(id);
         getInferiorEsquerdo().setCoordenadaX(0);
         getInferiorEsquerdo().setCoordenadaY(0);
         getInferiorDireito().setCoordenadaX(base);
         getInferiorDireito().setCoordenadaY(0);
-        getSuperior().setCoordenadaX(base/2);
+        getSuperior().setCoordenadaX(base / 2);
         getSuperior().setCoordenadaY(altura);
     }
-    
+
     @Override
-    public double getArea(){
-        return (base*altura)/2;
+    public double getArea() {
+        return (base * altura) / 2;
     }
-    
+
     @Override
-    public double getPerimetro(){
-        return base + (Math.sqrt((base/2)*(base/2)+(altura*altura))*2);
+    public double getPerimetro() {
+        return base + (Math.sqrt((base / 2) * (base / 2) + (altura * altura)) * 2);
     }
-        
+
+    @Override
+    public String getCoordenadas() {
+        return String.valueOf("BASE: " + base + " - ALTURA: " + altura);
+    }
+
+    @Override
+    public String getTipo() {
+        return "TRIÂNGULO";
+    }
+
     public Ponto getInferiorEsquerdo() {
         return inferiorEsquerdo;
     }
@@ -80,6 +88,5 @@ public class Triangulo extends FiguraGeometrica {
     public void setSuperior(Ponto superior) {
         this.superior = superior;
     }
-      
 
 }

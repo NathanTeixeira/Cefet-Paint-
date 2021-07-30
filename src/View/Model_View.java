@@ -33,6 +33,7 @@ public class Model_View {
         retangulo.setBase(basic.scn.nextInt());
         basic.ShowMsg("DIIGITE O VALOR DA ALTURA: ");
         retangulo.setAltura(basic.scn.nextInt());
+        basic.ShowMsg("\n");
         retangulo.setLados(retangulo.getId(), retangulo.getBase(), retangulo.getAltura());
         return retangulo;
     }
@@ -47,6 +48,7 @@ public class Model_View {
         trapezio.setBaseSuperior(basic.scn.nextInt());
         basic.ShowMsg("DIGITE O VALOR DA ALTURA: ");
         trapezio.setAltura(basic.scn.nextInt());
+        basic.ShowMsg("\n");
         trapezio.setLados(trapezio.getId(), trapezio.getBaseInferior(), trapezio.getBaseSuperior(), trapezio.getAltura());
         return trapezio;
     }
@@ -59,6 +61,7 @@ public class Model_View {
         triangulo.setBase(basic.scn.nextInt());
         basic.ShowMsg("DIGITE O VALOR DA ALTURA: ");
         triangulo.setAltura(basic.scn.nextInt());
+        basic.ShowMsg("\n");
         triangulo.setLados(triangulo.getId(), triangulo.getBase(), triangulo.getAltura());
         return triangulo;
     }
@@ -69,6 +72,7 @@ public class Model_View {
         reta.setId(basic.scn.next());
         basic.ShowMsg("DIGITE O TAMANHO DA RETA: ");
         reta.setFim(basic.scn.nextInt());
+        basic.ShowMsg("\n");
         reta.setLado(reta.getId(), reta.getFim());
         return reta;
     }
@@ -81,6 +85,7 @@ public class Model_View {
         ponto.setCoordenadaX(basic.scn.nextInt());
         basic.ShowMsg("DIGITE O VALOR DE Y: ");
         ponto.setCoordenadaY(basic.scn.nextInt());
+        basic.ShowMsg("\n");
         ponto.setPonto(ponto.getId(), ponto.getCoordenadaX(), ponto.getCoordenadaY());
         return ponto;
     }

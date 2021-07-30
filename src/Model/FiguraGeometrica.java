@@ -23,5 +23,13 @@ public class FiguraGeometrica {
     public double getDiagonal() {
         return 0;
     }
+    
+    public String getCoordenadas(){
+        return null;
+    }
+    
+    public String getTipo() {
+        return null;
+    }
 
 }

@@ -31,7 +31,7 @@ public class Quadrado extends Quadrilatero {
     }
 
     public void setLado(String id, int lado) {
-        setId("QUADRADO");
+        setId(id);
         getInferiorDireito().setCoordenadaX(lado);
         getInferiorDireito().setCoordenadaY(0);
         getInferiorEsquerdo().setCoordenadaX(0);
@@ -55,5 +55,15 @@ public class Quadrado extends Quadrilatero {
     @Override
     public double getDiagonal() {
         return Math.sqrt(((lado * lado) * 2));
+    }
+
+    @Override
+    public String getCoordenadas() {
+        return String.valueOf("TAMANHO: " + lado);
+    }
+
+    @Override
+    public String getTipo() {
+        return "QUADRADO";
     }
 }
