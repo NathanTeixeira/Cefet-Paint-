@@ -8,85 +8,86 @@ import Model.Trapezio;
 import Model.Triangulo;
 
 public class Model_View {
-    
+
     private Viewer basic;
-    
-    public Model_View(){
+
+    public Model_View() {
         basic = new Viewer();
     }
 
     public Quadrado askQuadrado() {
-        Quadrado quadrado = new Quadrado();
+        //Quadrado quadrado = new Quadrado();
         basic.ShowMsg("DIGITE O ID DA FIGURA: ");
-        quadrado.setId(basic.scn.next());
+        String id = basic.scn.next();
         basic.ShowMsg("DIGITE O TAMANHO DO LADO DO QUADRADO: ");
-        quadrado.setlado(basic.scn.nextInt());
-        quadrado.setLado(quadrado.getId(), quadrado.getLado());
+        int lado = basic.scn.nextInt();
+        Quadrado quadrado;
+        quadrado = new Quadrado(id, lado);
         return quadrado;
     }
 
     public Retangulo askRetangulo() {
-        Retangulo retangulo = new Retangulo();
         basic.ShowMsg("DIGITE O ID DA FIGURA: ");
-        retangulo.setId(basic.scn.next());
+        String id = basic.scn.next();
         basic.ShowMsg("DIGITE O VALOR DA BASE: ");
-        retangulo.setBase(basic.scn.nextInt());
+        int base = basic.scn.nextInt();
         basic.ShowMsg("DIIGITE O VALOR DA ALTURA: ");
-        retangulo.setAltura(basic.scn.nextInt());
+        int altura = basic.scn.nextInt();
         basic.ShowMsg("\n");
-        retangulo.setLados(retangulo.getId(), retangulo.getBase(), retangulo.getAltura());
+        Retangulo retangulo;
+        retangulo = new Retangulo(id, base, altura);
         return retangulo;
     }
 
     public Trapezio askTrapezio() {
-        Trapezio trapezio = new Trapezio();
         basic.ShowMsg("DIGITE O ID DA FIGURA: ");
-        trapezio.setId(basic.scn.next());
+        String id = basic.scn.next();
         basic.ShowMsg("DIGITE O VALOR DA BASE INFERIOR:");
-        trapezio.setBaseInferior(basic.scn.nextInt());
+        int baseInferior = basic.scn.nextInt();
         basic.ShowMsg("DIGITE O VALOR DA BASE SUPERIOR: ");
-        trapezio.setBaseSuperior(basic.scn.nextInt());
+        int baseSuperior = basic.scn.nextInt();
         basic.ShowMsg("DIGITE O VALOR DA ALTURA: ");
-        trapezio.setAltura(basic.scn.nextInt());
+        int altura = basic.scn.nextInt();
         basic.ShowMsg("\n");
-        trapezio.setLados(trapezio.getId(), trapezio.getBaseInferior(), trapezio.getBaseSuperior(), trapezio.getAltura());
+        Trapezio trapezio;
+        trapezio = new Trapezio(id, baseInferior, baseSuperior, altura);
         return trapezio;
     }
 
     public Triangulo askTriangulo() {
-        Triangulo triangulo = new Triangulo();
         basic.ShowMsg("DIGITE O ID DA FIGURA: ");
-        triangulo.setId(basic.scn.next());
+        String id = basic.scn.next();
         basic.ShowMsg("DIGITE O VALOR DA BASE: ");
-        triangulo.setBase(basic.scn.nextInt());
+        int base = basic.scn.nextInt();
         basic.ShowMsg("DIGITE O VALOR DA ALTURA: ");
-        triangulo.setAltura(basic.scn.nextInt());
+        int altura = basic.scn.nextInt();
         basic.ShowMsg("\n");
-        triangulo.setLados(triangulo.getId(), triangulo.getBase(), triangulo.getAltura());
+        Triangulo triangulo;
+        triangulo = new Triangulo(id, base, altura);
         return triangulo;
     }
 
     public Reta askReta() {
-        Reta reta = new Reta();
         basic.ShowMsg("DIGITE O ID DA FIGURA: ");
-        reta.setId(basic.scn.next());
+        String id = basic.scn.next();
         basic.ShowMsg("DIGITE O TAMANHO DA RETA: ");
-        reta.setFim(basic.scn.nextInt());
+        int fim = basic.scn.nextInt();
         basic.ShowMsg("\n");
-        reta.setLado(reta.getId(), reta.getFim());
+        Reta reta;
+        reta = new Reta(id, fim);
         return reta;
     }
 
     public Ponto askPonto() {
-        Ponto ponto = new Ponto();
         basic.ShowMsg("DIGITE O ID DA FIGURA: ");
-        ponto.setId(basic.scn.next());
+        String id = basic.scn.next();
         basic.ShowMsg("DIGITE O VALOR DE X: ");
-        ponto.setCoordenadaX(basic.scn.nextInt());
+        int coordenadaX = basic.scn.nextInt();
         basic.ShowMsg("DIGITE O VALOR DE Y: ");
-        ponto.setCoordenadaY(basic.scn.nextInt());
+        int coordenadaY = basic.scn.nextInt();
         basic.ShowMsg("\n");
-        ponto.setPonto(ponto.getId(), ponto.getCoordenadaX(), ponto.getCoordenadaY());
+        Ponto ponto;
+        ponto = new Ponto(id, coordenadaX, coordenadaY );
         return ponto;
     }
 }

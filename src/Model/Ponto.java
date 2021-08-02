@@ -6,12 +6,12 @@ public class Ponto extends FiguraGeometrica {
     private int coordenadaY;
 
     public Ponto() {
-        this(0, 0);
-        this.id = "PONTO";
+        this("PONTO", 0, 0);
+        
     }
 
-    public Ponto(int coordenadaX, int coordenadaY) {
-        setId("PONTO");
+    public Ponto(String id, int coordenadaX, int coordenadaY) {
+        setId(id);
         this.coordenadaX = coordenadaX;
         this.coordenadaY = coordenadaY;
     }

@@ -19,15 +19,14 @@ public class Reta extends FiguraGeometrica {
     }
 
     public Reta(String id, int fim) {
-        setId("RETA");
-        pontoInicio = new Ponto(0, 0);
-        pontoFim = new Ponto(fim, 0);
+        setId(id);
+        pontoInicio = new Ponto(null, 0, 0);
+        pontoFim = new Ponto(null, fim, 0);
+        this.setFim(fim);
     }
 
     public void setLado(String id, int fim) {
         setId(id);
-        getPontoInicio().setCoordenadaX(0);
-        getPontoInicio().setCoordenadaY(0);
         getPontoFim().setCoordenadaX(fim);
         getPontoFim().setCoordenadaY(0);
     }

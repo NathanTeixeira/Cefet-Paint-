@@ -35,7 +35,7 @@ public class Trapezio extends Quadrilatero {
     }
 
     public Trapezio(String id, int baseInferior, int baseSuperior, int Altura) {
-        setId("TRAPEZIO");
+        setId(id);
         getInferiorDireito().setCoordenadaX(baseInferior);
         getInferiorDireito().setCoordenadaY(0);
         getInferiorEsquerdo().setCoordenadaX(0);
@@ -44,6 +44,9 @@ public class Trapezio extends Quadrilatero {
         getSuperiorDireito().setCoordenadaY(Altura);
         getSuperiorEsquerdo().setCoordenadaX(0);
         getSuperiorEsquerdo().setCoordenadaY(Altura);
+        this.setBaseInferior(baseInferior);
+        this.setBaseSuperior(baseSuperior);
+        this.setAltura(Altura);
     }
 
     public void setLados(String id, int baseInferior, int baseSuperior, int Altura) {

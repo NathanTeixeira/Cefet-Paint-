@@ -26,7 +26,7 @@ public class Retangulo extends Quadrilatero {
     }
 
     public Retangulo(String id, int base, int Altura) {
-        setId("RETANGULO");
+        setId(id);
         getInferiorDireito().setCoordenadaX(base);
         getInferiorDireito().setCoordenadaY(0);
         getInferiorEsquerdo().setCoordenadaX(0);
@@ -35,7 +35,8 @@ public class Retangulo extends Quadrilatero {
         getSuperiorDireito().setCoordenadaY(Altura);
         getSuperiorEsquerdo().setCoordenadaX(0);
         getSuperiorEsquerdo().setCoordenadaY(Altura);
-
+        this.setBase(base);
+        this.setAltura(Altura);
     }
 
     public void setLados(String id, int base, int Altura) {

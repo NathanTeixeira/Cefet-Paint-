@@ -29,10 +29,12 @@ public class Triangulo extends FiguraGeometrica {
     }
 
     public Triangulo(String id, int base, int altura) {
-        setId("TRIANGULO");
-        inferiorEsquerdo = new Ponto(0, 0);
-        inferiorDireito = new Ponto(base, 0);
-        superior = new Ponto(base / 2, altura);
+        setId(id);
+        inferiorEsquerdo = new Ponto(null,0, 0);
+        inferiorDireito = new Ponto(null,base, 0);
+        superior = new Ponto(null, base / 2, altura);
+        this.setBase(base);
+        this.setAltura(altura);
     }
 
     public void setLados(String id, int base, int altura) {

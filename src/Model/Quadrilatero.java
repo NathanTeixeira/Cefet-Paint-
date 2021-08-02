@@ -10,11 +10,11 @@ public abstract class Quadrilatero extends FiguraGeometrica {
 
 
     public Quadrilatero() {
-        this.origem = new Ponto(0,0);
-        this.inferiorDireito = new Ponto(1,0);
-        this.inferiorEsquerdo = new Ponto(0,0);
-        this.superiorDireito = new Ponto(1,1);
-        this.superiorEsquerdo = new Ponto(0,1);
+        this.origem = new Ponto(null, 0, 0);
+        this.inferiorDireito = new Ponto(null,1,0);
+        this.inferiorEsquerdo = new Ponto(null,0,0);
+        this.superiorDireito = new Ponto(null,1,1);
+        this.superiorEsquerdo = new Ponto(null,0,1);
     }
 
     public Ponto getOrigem() {

@@ -16,18 +16,18 @@ public class Quadrado extends Quadrilatero {
         this("QUADRADO", 1);
     }
 
-    public Quadrado(String id, int lado) {
-        setId("QUADRADO");
+    public Quadrado(String id, int Lado) {
+        setId(id);
         getId();
-        getInferiorDireito().setCoordenadaX(lado);
+        getInferiorDireito().setCoordenadaX(Lado);
         getInferiorDireito().setCoordenadaY(0);
         getInferiorEsquerdo().setCoordenadaX(0);
         getInferiorEsquerdo().setCoordenadaY(0);
-        getSuperiorDireito().setCoordenadaX(lado);
-        getSuperiorDireito().setCoordenadaY(lado);
+        getSuperiorDireito().setCoordenadaX(Lado);
+        getSuperiorDireito().setCoordenadaY(Lado);
         getSuperiorEsquerdo().setCoordenadaX(0);
-        getSuperiorEsquerdo().setCoordenadaY(lado);
-        this.setlado(1);
+        getSuperiorEsquerdo().setCoordenadaY(Lado);
+        this.setlado(Lado);
     }
 
     public void setLado(String id, int lado) {
@@ -66,4 +66,5 @@ public class Quadrado extends Quadrilatero {
     public String getTipo() {
         return "QUADRADO";
     }
+    
 }
