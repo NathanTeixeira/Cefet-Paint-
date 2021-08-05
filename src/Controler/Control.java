@@ -3,61 +3,201 @@ package Controler;
 import Model.FiguraGeometrica;
 import Model.OpcoesMenu;
 import Model.Ponto;
+import Model.Ponto_Enum;
 import Model.Quadrado;
+import Model.Quadrado_Enum;
 import Model.Retangulo;
 import Model.Trapezio;
 import Model.Triangulo;
 import Model.Reta;
+import Model.Reta_Enum;
+import Model.Retangulo_Enum;
+import Model.Trapezio_Enum;
+import Model.Triangulo_Enum;
 import View.Menu_View;
-import View.Model_View;
+import View.Ponto_View;
+import View.Quadrado_View;
+import View.Reta_View;
+import View.Retangulo_View;
+import View.Trapezio_View;
+import View.Triangulo_View;
 import View.Viewer;
-import java.text.DecimalFormat;
 
 public class Control {
 
     private FiguraGeometrica[] figuras;
     private Viewer viewer;
-    private Model_View modelview;
     private Menu_View menuview;
+    private Ponto_View pontoView;
+    private Quadrado_View quadradoView;
+    private Reta_View retaView;
+    private Retangulo_View retanguloView;
+    private Trapezio_View trapezioView;
+    private Triangulo_View trianguloView;
 
     public Control() {
         figuras = new FiguraGeometrica[10];
         viewer = new Viewer();
-        modelview = new Model_View();
         menuview = new Menu_View();
+        quadradoView = new Quadrado_View();
+        pontoView = new Ponto_View();
+        retaView = new Reta_View();
+        retanguloView = new Retangulo_View();
+        trapezioView = new Trapezio_View();
+        trianguloView = new Triangulo_View();
+
     }
 
     public void printMenu() {
         OpcoesMenu escolha = OpcoesMenu.LISTAR;
-
+        Quadrado_Enum escolhaQuadrado = Quadrado_Enum.LISTAR_TIPOS;
+        Retangulo_Enum escolhaRetangulo = Retangulo_Enum.LISTAR_TIPOS;
+        Trapezio_Enum escolhaTrapezio = Trapezio_Enum.LISTAR_TIPOS;
+        Triangulo_Enum escolhaTriangulo = Triangulo_Enum.LISTAR_TIPOS;
+        Reta_Enum escolhaReta = Reta_Enum.LISTAR_TIPOS;
+        Ponto_Enum escolhaPonto = Ponto_Enum.LISTAR_TIPOS;
         do {
             escolha = menuview.askOpcao();
             viewer.ShowMsg("################################# \n");
             viewer.ShowMsg("Você escolheu: " + escolha + "\n\n");
             switch (escolha) {
                 case QUADRADO:
-                    Quadrado quadrado = modelview.askQuadrado();
-                    inserirFiguras(quadrado, 0);
+                    do {
+                        escolhaQuadrado = quadradoView.menuQuadrado();
+                        viewer.ShowMsg("Você escolheu: " + escolhaQuadrado + "\n\n");
+                        switch (escolhaQuadrado) {
+                            case NOVO:
+                                Quadrado quadrado = quadradoView.askQuadrado();
+                                inserirFiguras(quadrado, 0);
+                                break;
+                            case EDITAR:
+                                break;
+                            case LISTAR_TIPOS:
+                                break;
+                            case MOSTRAR:
+                                break;
+                            case EXCLUIR:
+                                break;
+                            case VOLTAR:
+                                break;
+                            default:
+                        }
+                    } while (escolhaQuadrado != Quadrado_Enum.VOLTAR);
                     break;
                 case RETANGULO:
-                    Retangulo retangulo = modelview.askRetangulo();
-                    inserirFiguras(retangulo, 1);
+                    do {
+                        escolhaRetangulo = retanguloView.menuRetangulo();
+                        viewer.ShowMsg("Você escolheu: " + escolhaRetangulo + "\n\n");
+                        switch (escolhaRetangulo) {
+                            case NOVO:
+                                Retangulo retangulo = retanguloView.askRetangulo();
+                                inserirFiguras(retangulo, 1);
+                                break;
+                            case EDITAR:
+                                break;
+                            case LISTAR_TIPOS:
+                                break;
+                            case MOSTRAR:
+                                break;
+                            case EXCLUIR:
+                                break;
+                            case VOLTAR:
+                                break;
+                            default:
+                        }
+                    } while (escolhaRetangulo != Retangulo_Enum.VOLTAR);
                     break;
                 case TRAPEZIO:
-                    Trapezio trapezio = modelview.askTrapezio();
-                    inserirFiguras(trapezio, 2);
+                    do {
+                        escolhaTrapezio = trapezioView.menuTrapezio();
+                        viewer.ShowMsg("Você escolheu: " + escolhaTrapezio + "\n\n");
+                        switch (escolhaTrapezio) {
+                            case NOVO:
+                                Trapezio trapezio = trapezioView.askTrapezio();
+                                inserirFiguras(trapezio, 2);
+                                break;
+                            case EDITAR:
+                                break;
+                            case LISTAR_TIPOS:
+                                break;
+                            case MOSTRAR:
+                                break;
+                            case EXCLUIR:
+                                break;
+                            case VOLTAR:
+                                break;
+                            default:
+                        }
+                    } while (escolhaTrapezio != Trapezio_Enum.VOLTAR);
                     break;
                 case TRIANGULO:
-                    Triangulo triangulo = modelview.askTriangulo();
-                    inserirFiguras(triangulo, 3);
+                    do {
+                        escolhaTriangulo = trianguloView.menuTriangulo();
+                        viewer.ShowMsg("Você escolheu: " + escolhaTriangulo + "\n\n");
+                        switch (escolhaTriangulo) {
+                            case NOVO:
+                                Triangulo triangulo = trianguloView.askTriangulo();
+                                inserirFiguras(triangulo, 3);
+                                break;
+                            case EDITAR:
+                                break;
+                            case LISTAR_TIPOS:
+                                break;
+                            case MOSTRAR:
+                                break;
+                            case EXCLUIR:
+                                break;
+                            case VOLTAR:
+                                break;
+                            default:
+                        }
+                    } while (escolhaTriangulo != Triangulo_Enum.VOLTAR);
                     break;
                 case RETA:
-                    Reta reta = modelview.askReta();
-                    inserirFiguras(reta, 4);
+                    do {
+                        escolhaReta = retaView.menuReta();
+                        viewer.ShowMsg("Você escolheu: " + escolhaReta + "\n\n");
+                        switch (escolhaReta) {
+                            case NOVO:
+                                Reta reta = retaView.askReta();
+                                inserirFiguras(reta, 4);
+                                break;
+                            case EDITAR:
+                                break;
+                            case LISTAR_TIPOS:
+                                break;
+                            case MOSTRAR:
+                                break;
+                            case EXCLUIR:
+                                break;
+                            case VOLTAR:
+                                break;
+                            default:
+                        }
+                    } while (escolhaReta != Reta_Enum.VOLTAR);
                     break;
                 case PONTO:
-                    Ponto ponto = modelview.askPonto();
-                    inserirFiguras(ponto, 5);
+                    do {
+                        escolhaPonto = pontoView.menuPonto();
+                        viewer.ShowMsg("Você escolheu: " + escolhaPonto + "\n\n");
+                        switch (escolhaPonto) {
+                            case NOVO:
+                                Ponto ponto = pontoView.askPonto();
+                                inserirFiguras(ponto, 5);
+                                break;
+                            case EDITAR:
+                                break;
+                            case LISTAR_TIPOS:
+                                break;
+                            case MOSTRAR:
+                                break;
+                            case EXCLUIR:
+                                break;
+                            case VOLTAR:
+                                break;
+                            default:
+                        }
+                    } while (escolhaPonto != Ponto_Enum.VOLTAR);
                     break;
                 case APAGAR:
                     viewer.ShowMsg("########################## \n\n");
@@ -71,6 +211,10 @@ public class Control {
                         viewer.ShowMsg("########################## \n\n");
                         break;
                     }
+                case SALVAR:
+                    break;
+                case RECARREGAR:
+                    break;
                 case LISTAR:
                     lerFiguras();
                     viewer.ShowMsg("###################### \n\n");
@@ -82,7 +226,6 @@ public class Control {
                     viewer.ShowMsg("ADIOS!!!");
                     break;
                 default:
-
             }
 
         } while (escolha != OpcoesMenu.SAIR);
@@ -121,7 +264,7 @@ public class Control {
                 viewer.ShowMsg("FIGURA: " + figuras[i].getTipo() + "\n");
                 viewer.ShowMsg("ID: " + figuras[i].getId() + "\n");
                 viewer.ShowMsg("**\n");
-                viewer.ShowMsg(figuras[i].getCoordenadas()+"\n");
+                viewer.ShowMsg(figuras[i].getCoordenadas() + "\n");
                 viewer.ShowMsg("**\n");
                 viewer.ShowMsg("AREA: " + figuras[i].getArea() + "\n");
                 viewer.ShowMsg("PERIMETRO: " + figuras[i].getPerimetro() + "\n");
