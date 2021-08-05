@@ -16,7 +16,6 @@ public class Model_View {
     }
 
     public Quadrado askQuadrado() {
-        
         basic.ShowMsg("DIGITE O ID DA FIGURA: ");
         String id = basic.scn.next();
         basic.ShowMsg("DIGITE O TAMANHO DO LADO DO QUADRADO: ");
