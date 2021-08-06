@@ -42,7 +42,7 @@ public class Reta extends FiguraGeometrica {
     }
 
     @Override
-    public String getCoordenadas() {
+    public String getDimensoes() {
         return String.valueOf("TAMANHO: " + fim);
     }
 

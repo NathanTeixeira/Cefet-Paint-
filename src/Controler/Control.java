@@ -71,6 +71,7 @@ public class Control {
                                 inserirFiguras(quadrado, 0);
                                 break;
                             case EDITAR:
+                                editarFiguras();
                                 break;
                             case LISTAR_TIPOS:
                                 break;
@@ -234,9 +235,9 @@ public class Control {
     public boolean inserirFiguras(FiguraGeometrica f, int i) {
         figuras[i] = f;
         viewer.ShowMsg("################################## \n\n");
-        for (int j = 0; j < figuras.length; j++) {
-            if (figuras == null) {
-                figuras[j] = f;
+        for (i = 0; i < figuras.length; i++) {
+            if (figuras[i] == null) {
+                figuras[i] = f;
                 viewer.ShowMsg("########################## \n\n");
                 return true;
             }
@@ -257,6 +258,21 @@ public class Control {
         return false;
     }
 
+    public boolean editarFiguras() {
+        menuview.askEditar();
+        for (int i = 0; i < figuras.length; i++) {
+            if (figuras[i] != null) {
+                if (menuview.getId().equals(figuras[i].getId())) {
+                    
+                    //quadradoView.editarQuadrado();
+                    //pontoView.editarPonto();
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public void lerFiguras() {
         viewer.ShowMsg("**LISTA** \n");
         for (int i = 0; i < figuras.length; i++) {
@@ -264,7 +280,7 @@ public class Control {
                 viewer.ShowMsg("FIGURA: " + figuras[i].getTipo() + "\n");
                 viewer.ShowMsg("ID: " + figuras[i].getId() + "\n");
                 viewer.ShowMsg("**\n");
-                viewer.ShowMsg(figuras[i].getCoordenadas() + "\n");
+                viewer.ShowMsg(figuras[i].getDimensoes() + "\n");
                 viewer.ShowMsg("**\n");
                 viewer.ShowMsg("AREA: " + figuras[i].getArea() + "\n");
                 viewer.ShowMsg("PERIMETRO: " + figuras[i].getPerimetro() + "\n");

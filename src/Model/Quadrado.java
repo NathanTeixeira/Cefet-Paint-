@@ -1,5 +1,6 @@
 package Model;
 
+
 public class Quadrado extends Quadrilatero {
 
     private int lado;
@@ -58,7 +59,7 @@ public class Quadrado extends Quadrilatero {
     }
 
     @Override
-    public String getCoordenadas() {
+    public String getDimensoes() {
         return String.valueOf("TAMANHO: " + lado);
     }
 
@@ -66,5 +67,6 @@ public class Quadrado extends Quadrilatero {
     public String getTipo() {
         return "QUADRADO";
     }
+
     
 }

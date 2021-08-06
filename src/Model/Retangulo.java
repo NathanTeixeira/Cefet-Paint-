@@ -67,7 +67,7 @@ public class Retangulo extends Quadrilatero {
     }
 
     @Override
-    public String getCoordenadas() {
+    public String getDimensoes() {
         return String.valueOf("BASE: " + base + " - ALTURA: " + altura);
     }
 

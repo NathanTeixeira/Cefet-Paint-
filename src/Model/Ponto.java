@@ -23,7 +23,7 @@ public class Ponto extends FiguraGeometrica {
     }
 
     @Override
-    public String getCoordenadas() {      
+    public String getDimensoes() {      
         return String.valueOf("X: "+coordenadaX+" - Y: "+ coordenadaY); 
     }
     

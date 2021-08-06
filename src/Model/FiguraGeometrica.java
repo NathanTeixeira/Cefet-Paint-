@@ -24,12 +24,13 @@ public class FiguraGeometrica {
         return 0;
     }
     
-    public String getCoordenadas(){
+    public String getDimensoes(){
         return null;
     }
     
     public String getTipo() {
         return null;
     }
+   
 
 }

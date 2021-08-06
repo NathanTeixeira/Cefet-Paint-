@@ -74,4 +74,10 @@ public class Menu_View {
         return getId();
     }
 
+    public String askEditar() {
+        basic.ShowMsg("DIGITE O ID DA FIGURA QUE DESEJA EDITAR: ");
+        setId(basic.AskString());
+        return getId();
+    }
+
 }

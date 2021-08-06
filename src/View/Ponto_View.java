@@ -7,6 +7,7 @@ import Model.Ponto_Enum;
 public class Ponto_View {
 
     private Viewer basic;
+    private Ponto ponto;
 
     public Ponto_View() {
         basic = new Viewer();
@@ -19,9 +20,18 @@ public class Ponto_View {
         int coordenadaX = basic.scn.nextInt();
         basic.ShowMsg("DIGITE O VALOR DE Y: ");
         int coordenadaY = basic.scn.nextInt();
-        basic.ShowMsg("\n");
-        Ponto ponto;
+        basic.ShowMsg("\n");        
         ponto = new Ponto(id, coordenadaX, coordenadaY);
+        return ponto;
+    }
+    
+        public Ponto editarPonto() {
+        basic.ShowMsg("DIGITE O NOVO ID DA FIGURA: ");
+        ponto.setId(basic.AskString());
+        basic.ShowMsg("DIGITE O NOVO VALOR DE X: ");
+        ponto.setCoordenadaX(basic.scn.nextInt());
+        basic.ShowMsg("DIGITE O NOVO VALOR DE Y: ");
+        ponto.setCoordenadaY(basic.scn.nextInt());
         return ponto;
     }
 

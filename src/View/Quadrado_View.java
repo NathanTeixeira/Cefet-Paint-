@@ -6,6 +6,7 @@ import Model.Quadrado_Enum;
 public class Quadrado_View {
 
     private Viewer basic;
+    private Quadrado quadrado;
 
     public Quadrado_View() {
         basic = new Viewer();
@@ -15,13 +16,20 @@ public class Quadrado_View {
         basic.ShowMsg("DIGITE O ID DA FIGURA: ");
         String id = basic.scn.next();
         basic.ShowMsg("DIGITE O TAMANHO DO LADO DO QUADRADO: ");
-        int lado = basic.scn.nextInt();
-        Quadrado quadrado;
+        int lado = basic.scn.nextInt();       
         quadrado = new Quadrado(id, lado);
         return quadrado;
     }
-    
-        public Quadrado_Enum menuQuadrado() {
+
+    public Quadrado editarQuadrado() {
+        basic.ShowMsg("DIGITE O NOVO ID DA FIGURA: ");
+        quadrado.setId(basic.AskString());
+        basic.ShowMsg("DIGITE O NOVO TAMANHO DO LADO DO QUADRADO: ");
+        quadrado.setlado(basic.scn.nextInt());
+        return quadrado;
+    }
+
+    public Quadrado_Enum menuQuadrado() {
         basic.ShowMsg("***MENU QUADRADO***\n"
                 + "1 - NOVO QUADRADO\n"
                 + "2 - EDITAR QUADRADO\n"
@@ -43,7 +51,7 @@ public class Quadrado_View {
                 return Quadrado_Enum.MOSTRAR;
             case 5:
                 return Quadrado_Enum.EXCLUIR;
-           default:
+            default:
                 return Quadrado_Enum.VOLTAR;
         }
     }
