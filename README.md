@@ -31,6 +31,11 @@ Qual o benefício do uso de classes ENUM?
 
 Cole a imagem do diagrama de classe do seu sistema e faça um paragrafo se você entende este diagrama e ele representa realmente objetos do mundo real, com nomes de Metodos coerentes.
 
+	[figuras geometricas.pdf](https://github.com/NathanTeixeira/Cefet-Paint-/files/6946023/figuras.geometricas.pdf)
+	
+	Eu consigo entender o diagrama e creio que outros que tambem, ele representa sim objetos do mundo real principalmente os da area da matematica por ser um diagramade figuras geometricas, eu fiz o possivel para usar nomes e criar metodos que fazem parte das figuras geometricas com objetivo de que qualquer um com conhecimento basico de figuras geomtricas consiga compreender o diagrama.
+
+
 
 
 Você fez uso da palavra Protected? Ela foi relevante onde?
