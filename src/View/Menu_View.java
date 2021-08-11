@@ -4,7 +4,7 @@ import Model.OpcoesMenu;
 
 public class Menu_View {
 
-    private Viewer basic;
+    private basicView basic;
     private String id;
 
     public String getId() {
@@ -16,7 +16,7 @@ public class Menu_View {
     }
 
     public Menu_View() {
-        basic = new Viewer();
+        basic = new basicView();
     }
 
     public OpcoesMenu askOpcao() {

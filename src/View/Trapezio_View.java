@@ -6,10 +6,11 @@ import Model.Trapezio_Enum;
 
 public class Trapezio_View {
 
-    private Viewer basic;
+    private basicView basic;
+    private Trapezio trapezio;
 
     public Trapezio_View() {
-        basic = new Viewer();
+        basic = new basicView();
     }
 
     public Trapezio askTrapezio() {
@@ -22,8 +23,20 @@ public class Trapezio_View {
         basic.ShowMsg("DIGITE O VALOR DA ALTURA: ");
         int altura = basic.scn.nextInt();
         basic.ShowMsg("\n");
-        Trapezio trapezio;
+
         trapezio = new Trapezio(id, baseInferior, baseSuperior, altura);
+        return trapezio;
+    }
+
+    public Trapezio editarTrapezio() {
+        basic.ShowMsg("DIGITE O NOVO ID DA FIGURA: ");
+        trapezio.setId(basic.AskString());
+        basic.ShowMsg("DIGITE O NOVO VALOR DA BASE INFERIOR:");
+        trapezio.setBaseInferior(basic.scn.nextInt());
+        basic.ShowMsg("DIGITE O NOVO VALOR DA BASE SUPERIOR: ");
+        trapezio.setBaseSuperior(basic.scn.nextInt());
+        basic.ShowMsg("DIGITE O NOVO VALOR DA ALTURA: ");
+        trapezio.setAltura(basic.scn.nextInt());
         return trapezio;
     }
 

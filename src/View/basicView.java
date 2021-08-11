@@ -9,11 +9,11 @@ import Model.Trapezio;
 import Model.Triangulo;
 import java.util.Scanner;
 
-public class Viewer {
+public class basicView {
 
     protected Scanner scn;
 
-    public Viewer() {
+    public basicView() {
         scn = new Scanner(System.in);
     }
 

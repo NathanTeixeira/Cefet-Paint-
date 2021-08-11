@@ -5,11 +5,11 @@ import Model.Quadrado_Enum;
 
 public class Quadrado_View {
 
-    private Viewer basic;
+    private basicView basic;
     private Quadrado quadrado;
 
     public Quadrado_View() {
-        basic = new Viewer();
+        basic = new basicView();
     }
 
     public Quadrado askQuadrado() {

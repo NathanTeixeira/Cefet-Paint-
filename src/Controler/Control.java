@@ -21,12 +21,12 @@ import View.Reta_View;
 import View.Retangulo_View;
 import View.Trapezio_View;
 import View.Triangulo_View;
-import View.Viewer;
+import View.basicView;
 
 public class Control {
 
     private FiguraGeometrica[] figuras;
-    private Viewer viewer;
+    private basicView basic;
     private Menu_View menuview;
     private Ponto_View pontoView;
     private Quadrado_View quadradoView;
@@ -34,10 +34,11 @@ public class Control {
     private Retangulo_View retanguloView;
     private Trapezio_View trapezioView;
     private Triangulo_View trianguloView;
+    private OpcoesMenu escolha;
 
     public Control() {
         figuras = new FiguraGeometrica[10];
-        viewer = new Viewer();
+        basic = new basicView();
         menuview = new Menu_View();
         quadradoView = new Quadrado_View();
         pontoView = new Ponto_View();
@@ -49,7 +50,7 @@ public class Control {
     }
 
     public void printMenu() {
-        OpcoesMenu escolha = OpcoesMenu.LISTAR;
+        escolha = OpcoesMenu.LISTAR;
         Quadrado_Enum escolhaQuadrado = Quadrado_Enum.LISTAR_TIPOS;
         Retangulo_Enum escolhaRetangulo = Retangulo_Enum.LISTAR_TIPOS;
         Trapezio_Enum escolhaTrapezio = Trapezio_Enum.LISTAR_TIPOS;
@@ -58,22 +59,32 @@ public class Control {
         Ponto_Enum escolhaPonto = Ponto_Enum.LISTAR_TIPOS;
         do {
             escolha = menuview.askOpcao();
-            viewer.ShowMsg("################################# \n");
-            viewer.ShowMsg("Você escolheu: " + escolha + "\n\n");
+            basic.ShowMsg("################################# \n");
+            basic.ShowMsg("Você escolheu: " + escolha + "\n\n");
             switch (escolha) {
                 case QUADRADO:
                     do {
                         escolhaQuadrado = quadradoView.menuQuadrado();
-                        viewer.ShowMsg("Você escolheu: " + escolhaQuadrado + "\n\n");
+                        basic.ShowMsg("Você escolheu: " + escolhaQuadrado + "\n\n");
                         switch (escolhaQuadrado) {
                             case NOVO:
                                 Quadrado quadrado = quadradoView.askQuadrado();
                                 inserirFiguras(quadrado, 0);
                                 break;
                             case EDITAR:
-                                editarFiguras();
+                                if (editarFiguras() == true) {
+                                    quadradoView.editarQuadrado();
+                                } else {
+                                    basic.ShowMsg("FALHA AO EDITAR\n");
+                                }
                                 break;
                             case LISTAR_TIPOS:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i].getTipo().equals("QUADRADO")) {
+                                        lerFiguras();
+                                        break;
+                                    }
+                                }
                                 break;
                             case MOSTRAR:
                                 break;
@@ -88,15 +99,26 @@ public class Control {
                 case RETANGULO:
                     do {
                         escolhaRetangulo = retanguloView.menuRetangulo();
-                        viewer.ShowMsg("Você escolheu: " + escolhaRetangulo + "\n\n");
+                        basic.ShowMsg("Você escolheu: " + escolhaRetangulo + "\n\n");
                         switch (escolhaRetangulo) {
                             case NOVO:
                                 Retangulo retangulo = retanguloView.askRetangulo();
                                 inserirFiguras(retangulo, 1);
                                 break;
                             case EDITAR:
+                                if (editarFiguras() == true) {
+                                    retanguloView.editarRetangulo();
+                                } else {
+                                    basic.ShowMsg("FALHA AO EDITAR\n");
+                                }
                                 break;
                             case LISTAR_TIPOS:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i].getTipo().equals("RETANGULO")) {
+                                        lerFiguras();
+                                        break;
+                                    }
+                                }
                                 break;
                             case MOSTRAR:
                                 break;
@@ -111,15 +133,26 @@ public class Control {
                 case TRAPEZIO:
                     do {
                         escolhaTrapezio = trapezioView.menuTrapezio();
-                        viewer.ShowMsg("Você escolheu: " + escolhaTrapezio + "\n\n");
+                        basic.ShowMsg("Você escolheu: " + escolhaTrapezio + "\n\n");
                         switch (escolhaTrapezio) {
                             case NOVO:
                                 Trapezio trapezio = trapezioView.askTrapezio();
                                 inserirFiguras(trapezio, 2);
                                 break;
                             case EDITAR:
+                                if (editarFiguras() == true) {
+                                    trapezioView.editarTrapezio();
+                                } else {
+                                    basic.ShowMsg("FALHA AO EDITAR\n");
+                                }
                                 break;
                             case LISTAR_TIPOS:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i].getTipo().equals("TRAPEZIO")) {
+                                        lerFiguras();
+                                        break;
+                                    }
+                                }
                                 break;
                             case MOSTRAR:
                                 break;
@@ -134,15 +167,26 @@ public class Control {
                 case TRIANGULO:
                     do {
                         escolhaTriangulo = trianguloView.menuTriangulo();
-                        viewer.ShowMsg("Você escolheu: " + escolhaTriangulo + "\n\n");
+                        basic.ShowMsg("Você escolheu: " + escolhaTriangulo + "\n\n");
                         switch (escolhaTriangulo) {
                             case NOVO:
                                 Triangulo triangulo = trianguloView.askTriangulo();
                                 inserirFiguras(triangulo, 3);
                                 break;
                             case EDITAR:
+                                if (editarFiguras() == true) {
+                                    trianguloView.editarTriangulo();
+                                } else {
+                                    basic.ShowMsg("FALHA AO EDITAR\n");
+                                }
                                 break;
                             case LISTAR_TIPOS:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i].getTipo().equals("TRIANGULO")) {
+                                        lerFiguras();
+                                        break;
+                                    }
+                                }
                                 break;
                             case MOSTRAR:
                                 break;
@@ -157,15 +201,26 @@ public class Control {
                 case RETA:
                     do {
                         escolhaReta = retaView.menuReta();
-                        viewer.ShowMsg("Você escolheu: " + escolhaReta + "\n\n");
+                        basic.ShowMsg("Você escolheu: " + escolhaReta + "\n\n");
                         switch (escolhaReta) {
                             case NOVO:
                                 Reta reta = retaView.askReta();
                                 inserirFiguras(reta, 4);
                                 break;
                             case EDITAR:
+                                if (editarFiguras() == true) {
+                                    retaView.editarReta();
+                                } else {
+                                    basic.ShowMsg("FALHA AO EDITAR\n");
+                                }
                                 break;
                             case LISTAR_TIPOS:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i].getTipo().equals("RETA")) {
+                                        lerFiguras();
+                                        break;
+                                    }
+                                }
                                 break;
                             case MOSTRAR:
                                 break;
@@ -180,15 +235,26 @@ public class Control {
                 case PONTO:
                     do {
                         escolhaPonto = pontoView.menuPonto();
-                        viewer.ShowMsg("Você escolheu: " + escolhaPonto + "\n\n");
+                        basic.ShowMsg("Você escolheu: " + escolhaPonto + "\n\n");
                         switch (escolhaPonto) {
                             case NOVO:
                                 Ponto ponto = pontoView.askPonto();
                                 inserirFiguras(ponto, 5);
                                 break;
                             case EDITAR:
+                                if (editarFiguras() == true) {
+                                    pontoView.editarPonto();
+                                } else {
+                                    basic.ShowMsg("FALHA AO EDITAR\n");
+                                }
                                 break;
                             case LISTAR_TIPOS:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i].getTipo().equals("PONTO")) {
+                                        lerFiguras();
+                                        break;
+                                    }
+                                }
                                 break;
                             case MOSTRAR:
                                 break;
@@ -201,15 +267,15 @@ public class Control {
                     } while (escolhaPonto != Ponto_Enum.VOLTAR);
                     break;
                 case APAGAR:
-                    viewer.ShowMsg("########################## \n\n");
+                    basic.ShowMsg("########################## \n\n");
                     lerFiguras();
                     if (apagarFiguras() == true) {
-                        viewer.ShowMsg("SUCESSO AO APAGAR! \n");
-                        viewer.ShowMsg("########################## \n\n");
+                        basic.ShowMsg("SUCESSO AO APAGAR! \n");
+                        basic.ShowMsg("########################## \n\n");
                         break;
                     } else {
-                        viewer.ShowMsg("FALHA AO APAGAR! \n");
-                        viewer.ShowMsg("########################## \n\n");
+                        basic.ShowMsg("FALHA AO APAGAR! \n");
+                        basic.ShowMsg("########################## \n\n");
                         break;
                     }
                 case SALVAR:
@@ -218,13 +284,13 @@ public class Control {
                     break;
                 case LISTAR:
                     lerFiguras();
-                    viewer.ShowMsg("###################### \n\n");
+                    basic.ShowMsg("###################### \n\n");
                     break;
                 case DESENHAR:
-                    viewer.ShowMsg("coming soon");
+                    basic.ShowMsg("coming soon");
                     break;
                 case SAIR:
-                    viewer.ShowMsg("ADIOS!!!");
+                    basic.ShowMsg("ADIOS!!!");
                     break;
                 default:
             }
@@ -234,11 +300,11 @@ public class Control {
 
     public boolean inserirFiguras(FiguraGeometrica f, int i) {
         figuras[i] = f;
-        viewer.ShowMsg("################################## \n\n");
+        basic.ShowMsg("################################## \n\n");
         for (i = 0; i < figuras.length; i++) {
             if (figuras[i] == null) {
                 figuras[i] = f;
-                viewer.ShowMsg("########################## \n\n");
+                basic.ShowMsg("########################## \n\n");
                 return true;
             }
         }
@@ -263,9 +329,6 @@ public class Control {
         for (int i = 0; i < figuras.length; i++) {
             if (figuras[i] != null) {
                 if (menuview.getId().equals(figuras[i].getId())) {
-                    
-                    //quadradoView.editarQuadrado();
-                    //pontoView.editarPonto();
                     return true;
                 }
             }
@@ -274,18 +337,16 @@ public class Control {
     }
 
     public void lerFiguras() {
-        viewer.ShowMsg("**LISTA** \n");
+        basic.ShowMsg("**LISTA** \n");
         for (int i = 0; i < figuras.length; i++) {
             if (figuras[i] != null) {
-                viewer.ShowMsg("FIGURA: " + figuras[i].getTipo() + "\n");
-                viewer.ShowMsg("ID: " + figuras[i].getId() + "\n");
-                viewer.ShowMsg("**\n");
-                viewer.ShowMsg(figuras[i].getDimensoes() + "\n");
-                viewer.ShowMsg("**\n");
-                viewer.ShowMsg("AREA: " + figuras[i].getArea() + "\n");
-                viewer.ShowMsg("PERIMETRO: " + figuras[i].getPerimetro() + "\n");
-                viewer.ShowMsg("DIAGONAL: " + figuras[i].getDiagonal() + "\n");
-                viewer.ShowMsg("** \n");
+                basic.ShowMsg("FIGURA: " + figuras[i].getTipo() + "\n");
+                basic.ShowMsg("ID: " + figuras[i].getId() + "\n");
+                basic.ShowMsg(figuras[i].getDimensoes() + "\n");
+                basic.ShowMsg("AREA: " + figuras[i].getArea() + "\n");
+                basic.ShowMsg("PERIMETRO: " + figuras[i].getPerimetro() + "\n");
+                basic.ShowMsg("DIAGONAL: " + figuras[i].getDiagonal() + "\n");
+                basic.ShowMsg("** \n");
 
             }
         }

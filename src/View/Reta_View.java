@@ -6,10 +6,11 @@ import Model.Reta_Enum;
 
 public class Reta_View {
 
-    private Viewer basic;
+    private basicView basic;
+    private Reta reta;
 
     public Reta_View() {
-        basic = new Viewer();
+        basic = new basicView();
     }
 
     public Reta askReta() {
@@ -18,8 +19,15 @@ public class Reta_View {
         basic.ShowMsg("DIGITE O TAMANHO DA RETA: ");
         int fim = basic.scn.nextInt();
         basic.ShowMsg("\n");
-        Reta reta;
         reta = new Reta(id, fim);
+        return reta;
+    }
+
+    public Reta editarReta() {
+        basic.ShowMsg("DIGITE O NOVO ID DA FIGURA: ");
+        reta.setId(basic.AskString());
+        basic.ShowMsg("DIGITE O TAMANHO DA RETA: ");
+        reta.setFim(basic.AskInt());
         return reta;
     }
 

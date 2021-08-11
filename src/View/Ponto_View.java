@@ -6,11 +6,11 @@ import Model.Ponto_Enum;
 
 public class Ponto_View {
 
-    private Viewer basic;
+    private basicView basic;
     private Ponto ponto;
 
     public Ponto_View() {
-        basic = new Viewer();
+        basic = new basicView();
     }
 
     public Ponto askPonto() {

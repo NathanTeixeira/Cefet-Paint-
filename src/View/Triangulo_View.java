@@ -6,10 +6,11 @@ import Model.Triangulo_Enum;
 
 public class Triangulo_View {
 
-    private Viewer basic;
+    private basicView basic;
+    private Triangulo triangulo;
 
     public Triangulo_View() {
-        basic = new Viewer();
+        basic = new basicView();
     }
 
     public Triangulo askTriangulo() {
@@ -20,11 +21,20 @@ public class Triangulo_View {
         basic.ShowMsg("DIGITE O VALOR DA ALTURA: ");
         int altura = basic.scn.nextInt();
         basic.ShowMsg("\n");
-        Triangulo triangulo;
         triangulo = new Triangulo(id, base, altura);
         return triangulo;
     }
-    
+
+    public Triangulo editarTriangulo() {
+        basic.ShowMsg("DIGITE O NOVO ID DA FIGURA: ");
+        triangulo.setId(basic.AskString());
+        basic.ShowMsg("DIGITE O VALOR DA NOVA BASE: ");
+        triangulo.setBase(basic.AskInt());
+        basic.ShowMsg("DIIGITE O VALOR DA NOVA ALTURA: ");
+        triangulo.setAltura(basic.scn.nextInt());
+        return triangulo;
+    }
+
     public Triangulo_Enum menuTriangulo() {
         basic.ShowMsg("***MENU TRIANGULO***\n"
                 + "1 - NOVO TRIANGULO\n"

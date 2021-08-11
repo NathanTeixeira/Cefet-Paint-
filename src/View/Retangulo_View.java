@@ -6,10 +6,11 @@ import Model.Retangulo_Enum;
 
 public class Retangulo_View {
 
-    private Viewer basic;
+    private basicView basic;
+    private Retangulo retangulo;
 
     public Retangulo_View() {
-        basic = new Viewer();
+        basic = new basicView();
     }
 
     public Retangulo askRetangulo() {
@@ -20,11 +21,20 @@ public class Retangulo_View {
         basic.ShowMsg("DIIGITE O VALOR DA ALTURA: ");
         int altura = basic.scn.nextInt();
         basic.ShowMsg("\n");
-        Retangulo retangulo;
         retangulo = new Retangulo(id, base, altura);
         return retangulo;
     }
-    
+
+    public Retangulo editarRetangulo() {
+        basic.ShowMsg("DIGITE O NOVO ID DA FIGURA: ");
+        retangulo.setId(basic.AskString());
+        basic.ShowMsg("DIGITE O VALOR DA NOVA BASE: ");
+        retangulo.setBase(basic.AskInt());
+        basic.ShowMsg("DIIGITE O VALOR DA NOVA ALTURA: ");
+        retangulo.setAltura(basic.scn.nextInt());
+        return retangulo;
+    }
+
     public Retangulo_Enum menuRetangulo() {
         basic.ShowMsg("***MENU RETANGULO***\n"
                 + "1 - NOVO RETANGULO\n"
