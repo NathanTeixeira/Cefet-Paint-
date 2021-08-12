@@ -69,7 +69,7 @@ public class Control {
                         switch (escolhaQuadrado) {
                             case NOVO:
                                 Quadrado quadrado = quadradoView.askQuadrado();
-                                inserirFiguras(quadrado, 0);
+                                inserirFiguras(quadrado);
                                 break;
                             case EDITAR:
                                 if (editarFiguras() == true) {
@@ -80,15 +80,37 @@ public class Control {
                                 break;
                             case LISTAR_TIPOS:
                                 for (int i = 0; i < figuras.length; i++) {
-                                    if (figuras[i].getTipo().equals("QUADRADO")) {
-                                        lerFiguras();
-                                        break;
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("QUADRADO")) {
+                                            basic.ShowMsg("FIGURA: " + figuras[i].getTipo() + "\n");
+                                            basic.ShowMsg("ID: " + figuras[i].getId() + "\n");
+                                            basic.ShowMsg(figuras[i].getDimensoes() + "\n");
+                                            basic.ShowMsg("AREA: " + figuras[i].getArea() + "\n");
+                                            basic.ShowMsg("PERIMETRO: " + figuras[i].getPerimetro() + "\n");
+                                            basic.ShowMsg("DIAGONAL: " + figuras[i].getDiagonal() + "\n");
+                                            basic.ShowMsg("** \n");
+
+                                        }
                                     }
                                 }
                                 break;
                             case MOSTRAR:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("QUADRADO")) {
+                                            mostrarFigura(i);
+                                        }
+                                    }
+                                }
                                 break;
                             case EXCLUIR:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("QUADRADO")) {
+                                            apagarId(i);
+                                        }
+                                    }
+                                }
                                 break;
                             case VOLTAR:
                                 break;
@@ -96,6 +118,7 @@ public class Control {
                         }
                     } while (escolhaQuadrado != Quadrado_Enum.VOLTAR);
                     break;
+
                 case RETANGULO:
                     do {
                         escolhaRetangulo = retanguloView.menuRetangulo();
@@ -103,7 +126,7 @@ public class Control {
                         switch (escolhaRetangulo) {
                             case NOVO:
                                 Retangulo retangulo = retanguloView.askRetangulo();
-                                inserirFiguras(retangulo, 1);
+                                inserirFiguras(retangulo);
                                 break;
                             case EDITAR:
                                 if (editarFiguras() == true) {
@@ -114,15 +137,37 @@ public class Control {
                                 break;
                             case LISTAR_TIPOS:
                                 for (int i = 0; i < figuras.length; i++) {
-                                    if (figuras[i].getTipo().equals("RETANGULO")) {
-                                        lerFiguras();
-                                        break;
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("RETANGULO")) {
+                                            basic.ShowMsg("FIGURA: " + figuras[i].getTipo() + "\n");
+                                            basic.ShowMsg("ID: " + figuras[i].getId() + "\n");
+                                            basic.ShowMsg(figuras[i].getDimensoes() + "\n");
+                                            basic.ShowMsg("AREA: " + figuras[i].getArea() + "\n");
+                                            basic.ShowMsg("PERIMETRO: " + figuras[i].getPerimetro() + "\n");
+                                            basic.ShowMsg("DIAGONAL: " + figuras[i].getDiagonal() + "\n");
+                                            basic.ShowMsg("** \n");
+
+                                        }
                                     }
                                 }
                                 break;
                             case MOSTRAR:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("RETANGULO")) {
+                                            mostrarFigura(i);
+                                        }
+                                    }
+                                }
                                 break;
                             case EXCLUIR:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("RETANGULO")) {
+                                            apagarId(i);
+                                        }
+                                    }
+                                }
                                 break;
                             case VOLTAR:
                                 break;
@@ -137,7 +182,7 @@ public class Control {
                         switch (escolhaTrapezio) {
                             case NOVO:
                                 Trapezio trapezio = trapezioView.askTrapezio();
-                                inserirFiguras(trapezio, 2);
+                                inserirFiguras(trapezio);
                                 break;
                             case EDITAR:
                                 if (editarFiguras() == true) {
@@ -148,15 +193,37 @@ public class Control {
                                 break;
                             case LISTAR_TIPOS:
                                 for (int i = 0; i < figuras.length; i++) {
-                                    if (figuras[i].getTipo().equals("TRAPEZIO")) {
-                                        lerFiguras();
-                                        break;
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("TRAPEZIO")) {
+                                            basic.ShowMsg("FIGURA: " + figuras[i].getTipo() + "\n");
+                                            basic.ShowMsg("ID: " + figuras[i].getId() + "\n");
+                                            basic.ShowMsg(figuras[i].getDimensoes() + "\n");
+                                            basic.ShowMsg("AREA: " + figuras[i].getArea() + "\n");
+                                            basic.ShowMsg("PERIMETRO: " + figuras[i].getPerimetro() + "\n");
+                                            basic.ShowMsg("DIAGONAL: " + figuras[i].getDiagonal() + "\n");
+                                            basic.ShowMsg("** \n");
+
+                                        }
                                     }
                                 }
                                 break;
                             case MOSTRAR:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("TRAPEZIO")) {
+                                            mostrarFigura(i);
+                                        }
+                                    }
+                                }
                                 break;
                             case EXCLUIR:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("TRAPEZIO")) {
+                                            apagarId(i);
+                                        }
+                                    }
+                                }
                                 break;
                             case VOLTAR:
                                 break;
@@ -171,7 +238,7 @@ public class Control {
                         switch (escolhaTriangulo) {
                             case NOVO:
                                 Triangulo triangulo = trianguloView.askTriangulo();
-                                inserirFiguras(triangulo, 3);
+                                inserirFiguras(triangulo);
                                 break;
                             case EDITAR:
                                 if (editarFiguras() == true) {
@@ -182,15 +249,37 @@ public class Control {
                                 break;
                             case LISTAR_TIPOS:
                                 for (int i = 0; i < figuras.length; i++) {
-                                    if (figuras[i].getTipo().equals("TRIANGULO")) {
-                                        lerFiguras();
-                                        break;
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("TRIANGULO")) {
+                                            basic.ShowMsg("FIGURA: " + figuras[i].getTipo() + "\n");
+                                            basic.ShowMsg("ID: " + figuras[i].getId() + "\n");
+                                            basic.ShowMsg(figuras[i].getDimensoes() + "\n");
+                                            basic.ShowMsg("AREA: " + figuras[i].getArea() + "\n");
+                                            basic.ShowMsg("PERIMETRO: " + figuras[i].getPerimetro() + "\n");
+                                            basic.ShowMsg("DIAGONAL: " + figuras[i].getDiagonal() + "\n");
+                                            basic.ShowMsg("** \n");
+
+                                        }
                                     }
                                 }
                                 break;
                             case MOSTRAR:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("TRIANGULO")) {
+                                            mostrarFigura(i);
+                                        }
+                                    }
+                                }
                                 break;
                             case EXCLUIR:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("TRIANGULO")) {
+                                            apagarId(i);
+                                        }
+                                    }
+                                }
                                 break;
                             case VOLTAR:
                                 break;
@@ -205,7 +294,7 @@ public class Control {
                         switch (escolhaReta) {
                             case NOVO:
                                 Reta reta = retaView.askReta();
-                                inserirFiguras(reta, 4);
+                                inserirFiguras(reta);
                                 break;
                             case EDITAR:
                                 if (editarFiguras() == true) {
@@ -216,15 +305,37 @@ public class Control {
                                 break;
                             case LISTAR_TIPOS:
                                 for (int i = 0; i < figuras.length; i++) {
-                                    if (figuras[i].getTipo().equals("RETA")) {
-                                        lerFiguras();
-                                        break;
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("RETA")) {
+                                            basic.ShowMsg("FIGURA: " + figuras[i].getTipo() + "\n");
+                                            basic.ShowMsg("ID: " + figuras[i].getId() + "\n");
+                                            basic.ShowMsg(figuras[i].getDimensoes() + "\n");
+                                            basic.ShowMsg("AREA: " + figuras[i].getArea() + "\n");
+                                            basic.ShowMsg("PERIMETRO: " + figuras[i].getPerimetro() + "\n");
+                                            basic.ShowMsg("DIAGONAL: " + figuras[i].getDiagonal() + "\n");
+                                            basic.ShowMsg("** \n");
+
+                                        }
                                     }
                                 }
                                 break;
                             case MOSTRAR:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("RETA")) {
+                                            mostrarFigura(i);
+                                        }
+                                    }
+                                }
                                 break;
                             case EXCLUIR:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("RETA")) {
+                                            apagarId(i);
+                                        }
+                                    }
+                                }
                                 break;
                             case VOLTAR:
                                 break;
@@ -239,7 +350,7 @@ public class Control {
                         switch (escolhaPonto) {
                             case NOVO:
                                 Ponto ponto = pontoView.askPonto();
-                                inserirFiguras(ponto, 5);
+                                inserirFiguras(ponto);
                                 break;
                             case EDITAR:
                                 if (editarFiguras() == true) {
@@ -250,15 +361,37 @@ public class Control {
                                 break;
                             case LISTAR_TIPOS:
                                 for (int i = 0; i < figuras.length; i++) {
-                                    if (figuras[i].getTipo().equals("PONTO")) {
-                                        lerFiguras();
-                                        break;
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("PONTO")) {
+                                            basic.ShowMsg("FIGURA: " + figuras[i].getTipo() + "\n");
+                                            basic.ShowMsg("ID: " + figuras[i].getId() + "\n");
+                                            basic.ShowMsg(figuras[i].getDimensoes() + "\n");
+                                            basic.ShowMsg("AREA: " + figuras[i].getArea() + "\n");
+                                            basic.ShowMsg("PERIMETRO: " + figuras[i].getPerimetro() + "\n");
+                                            basic.ShowMsg("DIAGONAL: " + figuras[i].getDiagonal() + "\n");
+                                            basic.ShowMsg("** \n");
+
+                                        }
                                     }
                                 }
                                 break;
                             case MOSTRAR:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("PONTO")) {
+                                            mostrarFigura(i);
+                                        }
+                                    }
+                                }
                                 break;
                             case EXCLUIR:
+                                for (int i = 0; i < figuras.length; i++) {
+                                    if (figuras[i] != null) {
+                                        if (figuras[i].getTipo().equals("PONTO")) {
+                                            apagarId(i);
+                                        }
+                                    }
+                                }
                                 break;
                             case VOLTAR:
                                 break;
@@ -298,16 +431,14 @@ public class Control {
         } while (escolha != OpcoesMenu.SAIR);
     }
 
-    public boolean inserirFiguras(FiguraGeometrica f, int i) {
-        figuras[i] = f;
-        basic.ShowMsg("################################## \n\n");
-        for (i = 0; i < figuras.length; i++) {
+    public boolean inserirFiguras(FiguraGeometrica f) {
+        for (int i = 0; i < figuras.length; i++) {
             if (figuras[i] == null) {
                 figuras[i] = f;
-                basic.ShowMsg("########################## \n\n");
                 return true;
             }
         }
+
         return false;
     }
 
@@ -347,9 +478,33 @@ public class Control {
                 basic.ShowMsg("PERIMETRO: " + figuras[i].getPerimetro() + "\n");
                 basic.ShowMsg("DIAGONAL: " + figuras[i].getDiagonal() + "\n");
                 basic.ShowMsg("** \n");
-
             }
         }
+    }
+
+    public boolean mostrarFigura(int i) {
+        menuview.askMostrar();
+        if (menuview.getId().equals(figuras[i].getId())) {
+            basic.ShowMsg("FIGURA: " + figuras[i].getTipo() + "\n");
+            basic.ShowMsg("ID: " + figuras[i].getId() + "\n");
+            basic.ShowMsg(figuras[i].getDimensoes() + "\n");
+            basic.ShowMsg("AREA: " + figuras[i].getArea() + "\n");
+            basic.ShowMsg("PERIMETRO: " + figuras[i].getPerimetro() + "\n");
+            basic.ShowMsg("DIAGONAL: " + figuras[i].getDiagonal() + "\n");
+            basic.ShowMsg("** \n");
+            return true;
+        }
+        return false;
+    }
+
+    public boolean apagarId(int i) {
+        menuview.askApagarId();
+        if (menuview.getId().equals(figuras[i].getId())) {
+            figuras[i] = null;
+            basic.ShowMsg("OPERAÇÃO BEM SUCEDIDA\n\n");
+            return true;
+        }
+        return false;
     }
 
 }

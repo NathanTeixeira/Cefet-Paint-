@@ -1,19 +1,25 @@
-
 package Model;
 
+public class Texto implements Renderizar {
 
-public class Texto {
-    
     private String conteudo;
-    private int cor;
+    private String cor;
     private int fonte;
 
-    public Texto(String conteudo, int cor, int fonte) {
+    public Texto(String conteudo, String cor, int fonte) {
         this.conteudo = conteudo;
         this.cor = cor;
         this.fonte = fonte;
     }
-    
+
+    @Override
+    public void renderizar() {
+        escrever();
+    }
+
+    public void escrever() {
+        setConteudo(conteudo);
+    }
 
     public String getConteudo() {
         return conteudo;
@@ -23,11 +29,11 @@ public class Texto {
         this.conteudo = conteudo;
     }
 
-    public int getCor() {
+    public String getCor() {
         return cor;
     }
 
-    public void setCor(int cor) {
+    public void setCor(String cor) {
         this.cor = cor;
     }
 
@@ -38,6 +44,5 @@ public class Texto {
     public void setFonte(int fonte) {
         this.fonte = fonte;
     }
-    
-    
+
 }

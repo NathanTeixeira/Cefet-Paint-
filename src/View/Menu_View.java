@@ -80,4 +80,16 @@ public class Menu_View {
         return getId();
     }
 
+    public String askMostrar() {
+        basic.ShowMsg("DIGITE O ID DA FIGURA QUE DESEJA VISUALIZAR: ");
+        setId(basic.AskString());
+        return getId();
+    }
+
+    public String askApagarId() {
+        basic.ShowMsg("DIGITE O ID QUE DESEJA APAGAR: ");
+        setId(basic.AskString());
+        return getId();
+    }
+
 }
