@@ -56,9 +56,9 @@ public class Menu_View {
             case 8:
                 return OpcoesMenu.APAGAR;
             case 9:
-                return OpcoesMenu.APAGAR;
+                return OpcoesMenu.SALVAR;
             case 10:
-                return OpcoesMenu.APAGAR;
+                return OpcoesMenu.RECARREGAR;
             case 11:
                 return OpcoesMenu.LISTAR;
             case 12:

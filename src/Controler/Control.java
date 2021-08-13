@@ -1,5 +1,6 @@
 package Controler;
 
+import DAO.dao;
 import Model.FiguraGeometrica;
 import Model.OpcoesMenu;
 import Model.Ponto;
@@ -29,12 +30,21 @@ public class Control {
     private basicView basic;
     private Menu_View menuview;
     private Ponto_View pontoView;
-    private Quadrado_View quadradoView;
     private Reta_View retaView;
     private Retangulo_View retanguloView;
     private Trapezio_View trapezioView;
     private Triangulo_View trianguloView;
     private OpcoesMenu escolha;
+    private Quadrado_View quadradoView;
+    private dao persistencia;
+
+    public FiguraGeometrica[] getFiguras() {
+        return figuras;
+    }
+
+    public void setFiguras(FiguraGeometrica[] figuras) {
+        this.figuras = figuras;
+    }
 
     public Control() {
         figuras = new FiguraGeometrica[10];
@@ -46,7 +56,7 @@ public class Control {
         retanguloView = new Retangulo_View();
         trapezioView = new Trapezio_View();
         trianguloView = new Triangulo_View();
-
+        persistencia = new dao();
     }
 
     public void printMenu() {
@@ -118,7 +128,6 @@ public class Control {
                         }
                     } while (escolhaQuadrado != Quadrado_Enum.VOLTAR);
                     break;
-
                 case RETANGULO:
                     do {
                         escolhaRetangulo = retanguloView.menuRetangulo();
@@ -412,8 +421,10 @@ public class Control {
                         break;
                     }
                 case SALVAR:
+                    persistencia.salvar(figuras);
                     break;
                 case RECARREGAR:
+                    figuras = persistencia.carregar();
                     break;
                 case LISTAR:
                     lerFiguras();
