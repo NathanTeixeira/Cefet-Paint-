@@ -1,0 +1,67 @@
+# Cefet-Paint-
+Nome da Tarefa: Relatório do TP1
+Descrição: Na sua implementação do Trabalho 1:
+
+Você fez uso do conceito de sobrecarga de funções? Onde?
+
+    		Fiz. Nos construtores das Figuras que criei.
+
+Você fez uso do conceito de Herança de funções? Onde? Você vê que houve benefícios?
+		
+		  Novamente eu fiz uso na superclasse FigurasGeometricas e na classe Quadrilatero. Foi benéfico, pois eu não precisei fica reescrevendo coisas e eu 		      poderia fazer modificações na superclasse ao invés de ficar modificando classe por classe.
+
+Você fez uso da função super() em construtores mesmo que indiretamente? Onde?
+
+		Creio que usei indiretamente na subclasse Tringulo no método getDiagonal que a figura triangulo não pois dai ficou igual ao da super classe.
+
+Você fez uso da função this() em construtores mesmo que indiretamente? Onde?
+
+		Sim. Utilizei nos construtores de todas as figuras que criei.
+		
+
+Você fez uso de sobreescrita de funções? onde? só de Object ou de alguma função sua mesmo?
+
+		  Fiz. Na minha super classe FigurasGeometricas criei métodos como getArea e getPerimetro e usei sobrecarga em quase todas as subclasses.
+
+Qual o benefício do uso de classes ENUM?
+		
+		O Menu ficou mais organizado mais bonito e evita de eu e o usuário termos que ficarmos colocando vários números na tela ao usarmos o menu, além de que
+                quando eu tiver que corrigir ou alterar algo fica mais fácil e eficiente de fazer usando os enums do que usando números.
+
+Cole a imagem do diagrama de classe do seu sistema e faça um paragrafo se você entende este diagrama e ele representa realmente objetos do mundo real, com nomes de Metodos coerentes.
+
+	[figuras geometricas.pdf](https://github.com/NathanTeixeira/Cefet-Paint-/files/6946023/figuras.geometricas.pdf)
+	
+	 Eu consigo entender o diagrama e creio que outros que também, ele representa sim, objetos reais principalmente os da área da matemática por ser um diagrama de figuras geométricas, eu fiz o possível para usar nomes e criar métodos que fazem parte das figuras geométricas com objetivo de que qualquer um com conhecimento básico de figuras geométricas consiga compreender o diagrama.
+
+Você fez uso da palavra Protected? Ela foi relevante onde?
+
+		 Fiz. Relevante não foi muito, pois mesmo usando protected eu escolhi usar get e set ao utilizar os atributos.
+		 
+***********************************************************************************************************************************
+
+QUESTIONARIO 2 E 3
+		 
+Você acredita que o correto uso da Orientação à objetos traz mais benefícios ao seu código fonte?
+
+		Acredito, o uso correto da OO deixa o código-fonte mais limpo, organizado e legível, facilitando a identificação de erros e a correção dos                      	 mesmos.
+
+O que é o tratamento de exceções e porque ele é necessário para a organização da transmissão de mensagens entre classes?
+
+		Como o próprio nome diz o tratamento de exceções "pega" as exceções e lança eles para um local em que você quer trata-las ou trata deles no próprio                   	  local nos permitindo escolher o que fazer quando o programa encontra uma exceção e impedindo que o programa fique parando toda vez que encontra uma 			exceção.
+
+Porque o uso de interfaces é útil no lugar do uso de Herança Multipla?
+
+		Porque na interface você estabelece um contrato, fazendo com que a classe que a implemente seja obrigada a implementar todos os métodos da interface o                   que se assemelha ao conceito de herança, mas a utilidade, a meu ver, é que nos casos em que você precisa de criar varias classe com métodos iguais à                     interface será mais útil do que a herança múltipla onde você teria duas super classes com atributos e métodos diferentes e teria que coordenar qual 			método usar e quando usar-lo em sua subclasse. Porém, a interface é menos "flexível", em casos em que você tem classes que compartilham alguns métodos   		 você teria problemas utilizando interface.
+
+Você tem alguma classe que usa extends e implements simultaneamente? se sim qual a justificativa para isso no modelo do seu trabalho?
+
+		Tenho. Com a interface(implements) eu estou garantindo que essa classe tenha exatamente os métodos que eu quero que ela tenha e com a herança(extends)                   assim como  na interface eu garanto os métodos que eu quero que ela tenha só que esses métodos já estão com o tratamento de exceções. Logo todas as 			classes em que eu usar o extends e o implements já terão métodos e atributos já atribuídos e tratados.
+
+O que é UML e dentre os possíveis diagramas existentes, cite 3 que poderiam ser úteis para descrever o seu projeto prático desta disciplina.
+
+		UML é uma linguagem para elaborar projetos, no caso eu utilizo para fazer diagramas. Poderiam ser úteis o Diagrama de classes que já esta sendo 			utilizado, o Diagrama de atividades que seria muito útil para otimizar os métodos e não me deixar fugir do objetivo do programa e também ajudaria ao 			fazer o javadoc, e o diagrama de sequência sua utilidade é semelhante a do diagrama de atividades porem a área de efeito não se limita apenas aos 			métodos.
+
+Do seu protótipo até esta etapa você acabou fazendo uso de comportamentos Polimórficos no seu trabalho prático. Qual foi o benefício sobre a visão de "Legibilidade" do código fonte? E sobre "organização" das classes?
+
+		Os benefícios do polimorfismo vem se tornado cada vez mais claro quanto maior o trabalho vai ficando e com a adição de mais heranças e de interfaces e                 	 com o fato de eu precisar criar classes de vários tipo para as minhas figuras o código fonte era para estar uma bagunça ilegível, porém ao olhar para o 	         meu controller, por exemplo ele tem 500 linhas e esta gerenciando mais de 15 classes do model e do view, porém tem apenas 5 ou 6 métodos que são e podem 		  ser usados para qualquer figura que você quiser.
