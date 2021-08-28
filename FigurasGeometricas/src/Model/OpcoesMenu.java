@@ -1,0 +1,9 @@
+
+package Model;
+
+
+public enum OpcoesMenu {
+    QUADRADO, RETANGULO, TRIANGULO, TRAPEZIO, RETA, LISTAR, APAGAR, SAIR, DESENHAR, PONTO,
+    TEXTO, SALVAR, RECARREGAR
+    
+}
